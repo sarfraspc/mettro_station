@@ -1,4 +1,4 @@
-// Generated from KMRLOpenData by tools/prepare-data.js. Do not edit manually.
+// Generated from data/gtfs by scripts/prepare-data.js. Do not edit manually.
 const ROUTES = {
   "aluvaToTripunithura": [
     {

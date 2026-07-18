@@ -1,6 +1,25 @@
 # Metro Stop Alert
 
-A single-file, offline mobile web app for Kochi Metro riders. Select where you board and where you are going, tap **Start Journey Countdown** once, and the app estimates upcoming stations from historical KMRL GTFS timing data. It alerts the rider one stop before the destination.
+A dependency-free, offline mobile web app for Kochi Metro riders. Select where you board and where you are going, tap **Start Journey Countdown** once, and the app estimates upcoming stations from historical KMRL GTFS timing data. It alerts the rider one stop before the destination.
+
+## Project structure
+
+```
+.
+├── index.html              # Static application entry point
+├── src/
+│   ├── styles/main.css     # Application styles
+│   ├── scripts/app.js      # Application behaviour
+│   └── data/routes.js      # Generated route data used by the app
+├── data/gtfs/              # Source KMRL GTFS schedule data
+└── scripts/prepare-data.js # Validates GTFS data and regenerates route data
+```
+
+To regenerate the route-data file after updating the GTFS source, run:
+
+```bash
+node scripts/prepare-data.js
+```
 
 ## Important limitation
 

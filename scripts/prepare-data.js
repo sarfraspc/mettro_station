@@ -1,14 +1,14 @@
 "use strict";
 
 // Generates the small, validated subset of the KMRL GTFS feed used by the app.
-// Run from the repository root: node tools/prepare-data.js
+// Run from the repository root: node scripts/prepare-data.js
 
 const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
-const DATA_DIR = path.join(ROOT, "KMRLOpenData");
-const OUTPUT_FILE = path.join(__dirname, "generated-routes.js");
+const DATA_DIR = path.join(ROOT, "data", "gtfs");
+const OUTPUT_FILE = path.join(ROOT, "src", "data", "routes.js");
 const STATION_COUNT = 25;
 
 function parseCsv(text) {
@@ -161,7 +161,7 @@ for (const route of [aluvaToTripunithura, tripunithuraToAluva]) {
   }
 }
 
-const output = `// Generated from KMRLOpenData by tools/prepare-data.js. Do not edit manually.\nconst ROUTES = ${JSON.stringify({ aluvaToTripunithura, tripunithuraToAluva }, null, 2)};\n`;
+const output = `// Generated from data/gtfs by scripts/prepare-data.js. Do not edit manually.\nconst ROUTES = ${JSON.stringify({ aluvaToTripunithura, tripunithuraToAluva }, null, 2)};\n`;
 fs.writeFileSync(OUTPUT_FILE, output);
 console.log(`Generated ${OUTPUT_FILE}`);
 console.log(`Direction ${aluvaDirection}: Aluva to Tripunithura (${aluvaToTripunithura.length} stations).`);
