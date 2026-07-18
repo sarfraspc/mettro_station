@@ -1,42 +1,21 @@
 # Metro Stop Alert
 
-A dependency-free, offline mobile web app for Kochi Metro riders. Select where you board and where you are going, tap **Start Journey Countdown** once, and the app estimates upcoming stations from historical KMRL GTFS timing data. It alerts the rider one stop before the destination.
+**For when your headphones, nap, or doomscrolling make you miss your metro stop.**
 
-## Project structure
+## What it does
 
-```
-.
-├── index.html              # Static application entry point
-├── src/
-│   ├── styles/main.css     # Application styles
-│   ├── scripts/app.js      # Application behaviour
-│   └── data/routes.js      # Generated route data used by the app
-├── data/gtfs/              # Source KMRL GTFS schedule data
-└── scripts/prepare-data.js # Validates GTFS data and regenerates route data
-```
+Metro Stop Alert is your quiet co-rider on the Kochi Metro. Pick your destination, board, and let it make sure you look up before you sail past it.
 
-To regenerate the route-data file after updating the GTFS source, run:
+## How it works
 
-```bash
-node scripts/prepare-data.js
-```
+Tap once when you board. The app estimates every upcoming stop from KMRL's real schedule data, then alerts you before your destination.
 
-## Important limitation
+## Why it's built this way
 
-This is a historical schedule estimate, not live train tracking. Delays, dwell time, or tapping Start before the train departs can make the estimate early or late. Browsers may also suspend timers, audio, or vibration while a phone is locked.
+No live GPS or API required—KMRL doesn't publish one. Built entirely with Codex during the sprint, it can travel anywhere GTFS data does.
 
-## Run locally
-
-No dependencies or build step are needed for the app itself. From this directory:
-
-```bash
-python -m http.server 8000 --bind 0.0.0.0
-```
-
-Open `http://localhost:8000/index.html` on the laptop. To test from a phone on the same Wi-Fi or hotspot, use the laptop's local IPv4 address instead of `localhost`, for example `http://192.168.x.x:8000/index.html`.
-
-## Phone test
-
-On the phone, enable Demo Mode, start a short Vyttila trip, then use **Demo: next stop** and **Demo: alert next**. Test the alert while the page is active; vibration and audio depend on the device and browser.
+> Built solo, live, on a moving KMRL train during the **Codex Nightline hackathon**.
 
 Contains data provided by Kochi Metro Rail Limited.
+
+**Tech:** single HTML file, vanilla JS, no backend, no dependencies.
