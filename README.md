@@ -12,10 +12,10 @@ Tap once when you board. The app estimates every upcoming stop from KMRL's real 
 
 ## Why it's built this way
 
-No live GPS or API required—KMRL doesn't publish one. Built entirely with Codex during the sprint, it can travel anywhere GTFS data does.
+No live GPS or API required—KMRL doesn't publish one. Built during the sprint, it can travel anywhere GTFS data does.
 
-> Built solo, live, on a moving KMRL train during the **Codex Nightline hackathon**.
+> Built solo, live, on a moving KMRL train.
 
 Contains data provided by Kochi Metro Rail Limited.
 
-**Tech:** single HTML file, vanilla JS, no backend, no dependencies.
+**Run it on your phone:** connect it to the same Wi-Fi, run `python -m http.server 8000 --bind 0.0.0.0` on your laptop, then open `http://YOUR-LAPTOP-IP:8000` on your phone.
